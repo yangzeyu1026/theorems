@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{upgreek}
+\usepackage{latexsym}
+\usepackage{arydshln}%这两个是矩阵虚线用的
+\usepackage[thmmarks,amsmath]{ntheorem}
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\normalfont}
+\theoremsymbol{$\square$}
+\newtheorem{Proof}{\hskip 2em Proof}
+\begin{document}
+\textbf{Implicit function theorem.} 
+\emph{Let \textbf{$\Upphi$} be of class C$^{(q)}$ from an open set D$\subset$E$^n$ into E$^m$, where q$\geq$1 and 1$\leq$m\emph{<}n. Let \textbf{x}$_0$$\in$D be such that 
+\textbf{$\Upphi$}\emph{(}\textbf{x}$_0$\emph{)}
+\emph{=} \emph{\textbf{0}}
+and 
+$\tilde{J}$\textbf{$\Upphi$}\emph{(}\textbf{x}$_0$\emph{)}
+\emph{$\neq$ 0}.
+ Then there exists a neighbourhood U of \textbf{x}$_0$, an open set R$\subset$E$^r$
+  containing $\widehat{\textbf{x}}$$_0$, 
+  and }\textbf{$\upphi$} 
+  \emph{\emph{= (}$\phi$$^1$,$\dotsc$,$\phi$$^m$\emph{)} of class C$^{(q)}$ on R such that:}
+$$\tilde{J}\textbf{$\Upphi$}(\textbf{x}) \neq 0  \qquad
+\emph{for all}  
+\quad\textbf{x}\in\emph{U}\quad; $$
+\emph{and}
+
+$$\{\textbf{x}\in\emph{U}:\textbf{$\Upphi$}(\textbf{x}) = \textbf{0}\} = \{(\hat{\textbf{x}},\textbf{$\upphi$}(\hat{\textbf{x}})):\hat{\textbf{x}}\in R\}$$
+\begin{Proof}
+Since $\Upphi$ is at least of C$^{(1)}$, the Jacobian $\tilde{J}$\textbf{$\Upphi$}  
+is a continuous function. By assumption it is not zero at \textbf{x}$_0$, and therefore is not zero for \textbf{x} in some neighbourhood \emph{U}$_0$ of \textbf{x}$_0$. 
+
+Let us consider the transformation \textbf{f}, with domain \emph{U}$_o$ and values in \emph{E$^n$},
+$$f^i(\textbf{x}) = x^i,\qquad\qquad i= 1,\dotsc,r,$$
+$$f^{r+1}(\textbf{x}) = \Upphi^l(\textbf{x}),\qquad l = 1,\dotsc,m,\quad m + r = n.$$
+
+The transformation \textbf{f} is of class C$^{(q)}$. Its matrix of partial derivatives is
+$$\begin{pmatrix}
+\begin{array}{cccc:ccc}
+1&0&\dotsc&0&0&\dotsc&0\\
+0&1&\dotsc& &\dotsc&\dotsc&0\\
+\vdots& &\ddots& & & &\vdots\\ 
+0&0&\dotsc&1&0&\dotsc&0\\ \hdashline
+\Upphi^1_1& &\dotsc&\Upphi^1_r&\Upphi^1_{r+1}& &\Upphi^1_n\\
+\vdots& & & & & &\vdots\\
+\Upphi^m_1& &\dotsc&\Upphi^m_r&\Upphi^m_{r+1} &\ddots&\Upphi^m_n\\
+\end{array}
+\end{pmatrix}$$
+By properties of determines, the Jacobian \emph{J}\textbf{f}(\textbf{x}) equals the determinant \emph{$\tilde{J}$}\textbf{$\Upphi$}(\textbf{x}) of the m $\times$ m block in the lower right-hand corner. Therefore \emph{J}\textbf{f}(\textbf{x}) $\neq$ 0. By the inverse function theorem, there is a neighbourhood \emph{U} of \textbf{x}$_0$ such that \textbf{f}(\emph{U}) is an open set and the restriction \textbf{f}|\emph{U} has an inverse \textbf{g} of class C$^{(q)}$.\par
+Writing(\textbf{$\hat{x}$},\textbf{0}) for (x$^1$,$\dotsc$,x$^r$,0,$\dotsc$,0), let
+$$\emph{R} = \{\hat{\textbf{x}}:
+(
+\hat{\textbf{x}},
+\textbf{0})\in\textbf{f}(\emph{U}   )\}.$$
+Since \textbf{f}(\emph{U}) is an open set, \emph{R} is open. For every $\hat{x} \in$ \emph{R},let
+$$ \phi^l(\hat{\textbf{x}}) = \emph{g}^{r+l}(\hat{\textbf{x}},\textbf{0})
+,\qquad \emph{l} = 1,\dotsc,m. 
+$$
+Then \textbf{x}$\in$\emph{U} and \textbf{$\Upphi$}(\textbf{x}) = \textbf{0} if and only if $\hat{\textbf{x}} \in$ \emph{R} and \textbf{f}(\textbf{x}) = ($\hat{\textbf{x}}$,\textbf{0}). Since \textbf{f}|\emph{U} and \textbf{g} are inverses, \textbf{f}(\textbf{x}) = ($\hat{\textbf{x}}$,\textbf{0}) if and only if \textbf{x} = \textbf{g} = ($\hat{\textbf{x}}$,\textbf{0})
+\end{Proof}
+\end{document}
