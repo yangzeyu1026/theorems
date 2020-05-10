@@ -1,0 +1,209 @@
+\documentclass[titlepage,a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{float}
+%\usepackage{appendix}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{upgreek}
+\usepackage{latexsym}
+\usepackage{arydshln}
+\usepackage{dsfont}
+%这两个是矩阵虚线用的
+\usepackage[thmmarks,amsmath]{ntheorem}
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\normalfont}
+\theoremsymbol{$\square$}
+\newtheorem{Proof}{\hskip 2em Proof}
+\hypersetup{
+            hypertex=true,
+            colorlinks=true,
+            linkcolor=blue,
+            anchorcolor=blue,
+            citecolor=red}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\bfseries{}Yang \thepage}
+\doublespacing
+\begin{document}
+    %\textrm{Roman Family}
+    \title{\textbf{Using special properties to construct radius}}
+    \author{Zeyu Yang}
+    \date{\today}
+    \maketitle
+\section{Introduction}
+In some proofs, we may face the condition of construct some radius to proof the existence, or the distance between two objects, or something else. This passage lists some examples for constructing radius through different properties of the given conditions.\par
+\section{Examples and Explanations}
+\subsection{Using Triangle Inequality}
+
+\subsubsection {\textbf{Simplest Examples}}(Let \emph{U} be the $\delta$-neighbourhood of \textbf{x}$_0$, showing that every point of \emph{U} is interior to \emph{U})\par
+Given \textbf{x} $\in U$, let $r=\delta -|\textbf{x}-\textbf{x}_0|$ and let \emph{V} be the \emph{r}-neighbourhood of \textbf{x}. If \textbf{y} $\in V$, then $\textbf{y}-\textbf{x}_0=(\textbf{y}-\textbf{x})+(\textbf{x}-\textbf{x}_0)$ and by the \textbf{triangle inequality}
+$$|\textbf{y}-\textbf{x}_0|\leq |\textbf{y}-\textbf{x}|+|\textbf{x}-\textbf{x}_0|$$
+$$|\textbf{y}-\textbf{x}_0|<r+|\textbf{x}-\textbf{x}_0|=\delta$$
+Hence \textbf{y} $\in U$. This shows that $V\subset U$. Similarly, every point \textbf{x} such that $|\textbf{x}-\textbf{x}_0|>\delta$ is exterior to \emph{U}. If $|\textbf{x}-\textbf{x}_0|=r$, \textbf{x} is a frontier point.\par
+Comments: Try to find two extreme scalar which can hold the right side of the triangle inequality.\par
+
+
+\subsubsection{A More Complex One} \textbf{Theorem} \emph{Let} $f_1,f_2,\dotsc$ \emph{be a sequence of functions, such that} $f_m$ \emph{is continuous on S for each } $m=1,2,\dotsc$ \emph{and} $f_m$ \emph{tends to f uniformly on S as} $m \rightarrow \infty$. \emph{Then f is continuous on S.}
+\begin{Proof}
+Consider any $p_0 \in S$. Given $\mathcal{E}>0$, there exists \emph{N} such that $\lVert f_m-f\rVert <\frac{\mathcal{E}}{3}$ for every $m\geq N$ since $f_m$ tends to \emph{f} uniformly. Since $f_N$ is continuous, there exists a neighbourhood \emph{U} of $p_0$ such that
+$$|f_N(p)-f_N(p_0)| < \frac{\mathcal{E}}{3} \quad \emph{for all}\quad p\in U $$ 
+Recall that $|f_N(p)-f_N(p_0)|\leq \lVert f_N -f\rVert$ by the definition of norm. Then
+$$f(p)-f(p_0)=[f(p)-f_N(p)]+[f_N(p)-f_N(p_0)]+[f_N(p_0)-f(p_0)],$$
+$$|f(p)-f(p_0)|\leq|f(p)-f_N(p)|+|f_N(p)-f_N(p_0)|+|f_N(p_0)-f(p_0)|<\frac{\mathcal{E}}{3}+\frac{\mathcal{E}}{3}+\frac{\mathcal{E}}{3}=\mathcal{E}$$
+
+for all $p\in U$. Since such a neighbourhood \emph{U} exists corresponding to every $\mathcal{E}>0$, \emph{f} is continuous at $p_0$. Since $p_0$ is any point of \emph{S}, \emph{f} is continuous on \emph{S}.
+\end{Proof}
+Similar one: If $a_n\rightarrow a$ and 
+$b_n\rightarrow b$, then $a_n+b_n\rightarrow a+b$
+
+\subsubsection{Two Propositions}
+First, let's define the measure of the linear transformation:
+$$\lVert\textbf{L}\rVert=max\{|\textbf{L}|(\textbf{t}):|\textbf{t}|\leq 1\}$$
+Let us show that:
+\begin{equation}
+|\textbf{L}(\textbf{t})|\leq \lVert\textbf{L}\rVert|\textbf{t}|
+\label{weare}
+\end{equation}
+for every \textbf{t}$\in E^r$. If $\textbf{t}=\textbf{0}$, then both sides are \textbf{0}. If $\textbf{t}\neq \textbf{0}$, let $|c=|\textbf{t}|^{-1}$. Since \textbf{L} is linear, $\textbf{L}(c\textbf{t})=c\textbf{L}(\textbf{t})$. Since $|c\textbf{t}|=1$, $|\textbf{L}(c\textbf{t})|\leq \lVert\textbf{L}\rVert$. Thus $|\textbf{t}|^{-1}|\textbf{L}(\textbf{t})|\leq \lVert\textbf{L}\rVert$, which is the same as (\ref{weare})
+Since $\textbf{L}(\textbf{s})-\textbf{L}(\textbf{t})=\textbf{L}(\textbf{s}-\textbf{t})$, we have upon replacing \textbf{t} by $\textbf{s}-\textbf{t}$ in (\ref{weare})
+\begin{equation}
+|\textbf{L}(\textbf{s})-\textbf{L}(\textbf{t})|\leq \lVert\textbf{L}\rVert|\textbf{s}-\textbf{t}|
+\label{wetwo}
+\end{equation}
+\textbf{Notice}: In the process of getting (\ref{wetwo}), we have already used two basic properties of the linear transformation.
+ \textbf{Proposition 4.4} \emph{Let \emph{\textbf{g}} be differential at \emph{\textbf{t$_0$}}. Then given \emph{$\varepsilon$} there exists a neighbourhood \emph{\textbf{$\Omega_0$}} of \emph{\textbf{t$_0$}} such that \emph{\textbf{$\Omega$$_0$}}$\subset$$\Delta$}
+\begin{equation}
+ |\textbf{g(t)} - \textbf{g(t$_0$)}|\leq(\|\emph{D}\textbf{g}(\textbf{t$_0$})\| + \varepsilon)|\textbf{t} - \textbf{t$_0$}|
+\label{iii}
+\end{equation}
+\begin{Proof}
+Let $\textbf{L}=D\textbf{g}(\textbf{t}_0)$ and set $\tilde{\textbf{g}}(\textbf{t})=\textbf{g}(\textbf{t})-\textbf{L}(\textbf{t}$. Since $D\textbf{L}(\textbf{t}_0)=\textbf{L}$, $D\tilde{\textbf{g}}(\textbf{t}_0)=\textbf{0}$ (the zero linear transformation). 
+\begin{equation}
+\lim_{\textbf{k}\to\textbf{0}}\frac{1}{|\textbf{k}|}[\textbf{g}(\textbf{t}_0+\textbf{k})-\textbf{g}(\textbf{t}_0)-\textbf{L}(\textbf{k})]
+\label{ddd}
+\end{equation}
+By (\ref{ddd}) (the definition of differential function), in which \textbf{g} is replaced by $\tilde{\textbf{g}}$, there is a neighbourhood $\Omega_0$ of \textbf{t}$_0$ such that 
+\begin{equation}
+|\tilde{\textbf{g}}(\textbf{t})-\tilde{\textbf{g}}(\textbf{t}_0)|\leq \mathcal{E}|\textbf{t}-\textbf{t}_0|
+\tag{*}
+\label{eee}
+\end{equation}
+for every $\textbf{t}\in \Omega_0$. But
+$$\textbf{g}(\textbf{t})-\textbf{g}(\textbf{t}_0)=[\textbf{L}(\textbf{t})-\textbf{L}(\textbf{t}_0)]+[\tilde{\textbf{g}}(\textbf{t})-\tilde{\textbf{g}}(\textbf{t}_0)|.$$
+From (\ref{eee}),(\ref{wetwo}), and the \textbf{triangle inequality} we get (\ref{iii}).
+\end{Proof}
+ \emph{for every \emph{\textbf{t}$\in$\textbf{$\Omega$$_0$}}.}
+ \textbf{Proposition 4.5} \emph{Let} \textbf{g} \emph{be of class C}$_{(1)}$ and $\textbf{t}\in \Delta$. \emph{Then given} $\mathcal{E}>0$ \emph{there exists a neighbourhood} \textbf{$\Omega$} \emph{of} \textbf{t}$_0$ such that \textbf{$\Omega$}$\subset\Delta$ and
+ \begin{equation}
+ |\textbf{g}(\textbf{s})-\textbf{g}(\textbf{t})|\leq (\lVert D\textbf{g}(\textbf{t}_0)\rVert+\mathcal{E})|\textbf{s}-\textbf{t}|
+ \label{ggg}
+ \end{equation}
+ \emph{for every} \textbf{s}, \textbf{t} $\in \Omega$
+ \begin{Proof}
+Let $\tilde{\textbf{g}}$ ba as before. The row covectors $d\tilde{g}^i(\textbf{t}_0)$ are all \textbf{0}. Since the paritial derivatives of $\tilde{g}$ are continuous, given $\varepsilon >0$ there is a neighbourhood $\Omega$ of \textbf{t}$_0$ such that $|d\tilde{g}^i(\textbf{u})|<\frac{\varepsilon}{n}$ for every $\textbf{u}\in \Omega$ and $i=1,2,\dotsc$. By lemma 1, for every $\textbf{s},\textbf{t}\in \Omega$
+$$|\tilde{g}^i(\textbf{s})-\tilde{g}^i(\textbf{t})|\leq \frac{\varepsilon}{n}|\textbf{s}-\textbf{t}|,$$
+\begin{equation}
+|\tilde{\textbf{g}}(\textbf{s})-\tilde{\textbf{g}}(\textbf{t})|\leq \sum_{i=1}^n|\tilde{g}^i(\textbf{s})-\tilde{g}^i(\textbf{t})|\leq \varepsilon|\textbf{s}-\textbf{t}|
+\tag{**}
+\label{rrr}
+\end{equation}
+From (\ref{rrr}) and (\ref{wetwo}) we obtain (\ref{ggg}) in the same way as before.
+ \end{Proof}
+ Note: lemma 1 is: \emph{Let f be differentiable on a convex set K and} $C\geq 0$ \emph{a number such that} $|df(\textbf{x})|\leq C$ \emph{for every} $\textbf{x}\in K$. \emph{Then for every} $\textbf{x},\textbf{y}\in K$
+ $$|f(\textbf{x})-f(\textbf{y})|\leq C|\textbf{x}-\textbf{y}|$$
+ Comments: these two propositions show two methods for constructing triangle inequality, one is construct an inequality from an equation, the other is creating several equal parts and combine them into a big inequality. 
+
+
+
+\subsection{Approaching}
+\subsubsection{A Simple Example}
+A number $a$ is an accumulation point of a sequence $(a_n)$ if and only if there exists a subsequence of $(a_n)$ that converges to $a$.\par
+\begin{Proof}
+($\Rightarrow$) This case follows immediately from the definitions.\par
+($\Leftarrow$) We assume that \emph{a} is an accumulation point of ($a_n$) = ($a_1,a_2,2_3,\dotsb$). By the definition of accumulation point, there exists some $a_k$ such that $|a-a_k|<\mathcal{E}:=1$; let $n_1=k$. Again, for $\mathcal{E}=\frac{1}{2}$ and $N=n_1$ there exists some $l>n_1$ such that $|a-a_l|<\frac{1}{2}$; let $n_2=l$. By choosing $\mathcal{E}=1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\dotsc$ we hence iteratively find natural numbers $n_k,k\in \mathds{N}$, such that ($n_k$) is a strictly increasing sequence and
+$$|a_{n_k}-a|<\frac{1}{k},\qquad k=1,2,3,\dotsc$$
+It follows that ($a_{n_k}$) is a subsequence of ($a_n$) that converges to \emph{a}.
+\end{Proof}
+
+\subsubsection{Example:}(Bolzano-Weierstrass theorem and one of its corollaries) 
+First, Bolzano-Weierstrass theorem: \emph{Every bounded infinited set} $A\in E^n$ \emph{has at least one accumulation point.} and the corollary: \emph{Let A be a closed, nonempty subset of } $E^n$ \emph{and} $\textbf{x}_o \not\in A$\emph{. Then there exists} \textbf{x}$_1\in A$ \emph{such that} $|\textbf{x}-\textbf{x}_0|\geq |\textbf{x}_1-\textbf{x}_0|$ \emph{for all} $\textbf{x} \in A$\par
+Comment: Explicitly we know that we want to find the closet point from in \emph{A} to \textbf{x}$_0$, but the fact that \emph{A} is bounded only ensures the $inf\{|\textbf{x}-\textbf{x}_0|\}$ exists. More precise estimation needs to ensure the point exists.
+\begin{Proof}
+Let $S_r=\{\textbf{x}:|\textbf{x}-\textbf{x}_0|=r\}$ denote the closed spherical \emph{n}-ball with the center \textbf{x}$_0$ and radius \emph{r}. Let
+$$d=inf\{|\textbf{x}-\textbf{x}_0|:\textbf{x}\in A\}$$
+$$d_m=d+\frac{1}{m}\quad m=1,2,\dotsb$$
+$$A_m=A\cap S_{d_m}$$.
+The sets $A_1,A_2,\dotsb$ satisfy the hypotheses of Corollary 2. Let \textbf{x}$_1\in \cap_{m=1}^{\infty} A_m$. Then $\textbf{x}_1 \in A$ since each $A\subset A_m$. By definition of \emph{d}, $|\textbf{x}_1-\textbf{x}_0|\geq d$. Since $\textbf{x}_1 \in A_m$, and $A_m\in S_{d_m}$, $|\textbf{x}_1-\textbf{x}_0|\leq d+\frac{1}{m}$ for each $m=1,2,\dotsb$ Thus $|\textbf{x}_1-\textbf{x}_0|$
+\end{Proof}
+(Note: Corollary 2 is: $let   A_1,A_2,\dotsb$ 
+\emph{be nonempty bounded, closed subsets of E$^n$ such that} 
+$A_1\supset A_2\supset \dotsb$. \emph{Then} $\bigcap_{m=1}^{\infty}$ \emph{is not empty})
+
+\subsection{Looking for Some Maximum, then construct inequailty}
+\subsubsection{A Simple Lemma}
+Prove Every Cauchy Sequence in a Metric Space ($M,\varrho$) is bounded (Complex numbers)
+\begin{Proof}
+Let $a_n$ be cauchy sequence. We should show that $a_n$ is bounded.\par
+For $\mathcal{E}=1$ we can find some \emph{N} such that $\varrho(a_N,a_n)<1$ for all $n>N$. Let $x\in M$ be some fixed point. By the \textbf{triangle inequailty},
+$$\varrho(a_n,x)\leq \varrho(a_n,a_N)+\varrho(a_N,x)<1+\varrho(a_N,x)\qquad for\quad n>N$$
+and
+$$\varrho(a_n,x)\leq max\{\varrho(a_1,x),\dotsc,\varrho(a_N,x),\varrho(a_N,x)+1\}=:C$$
+hence $a_n\in B_{C+1}(x)$ for all $n\in \mathds{N}$ and $a_n$ is bounded.
+\end{Proof}
+\textbf{Similar example}: 
+\subsubsection{Limits of functions}
+\textbf{Proposition} \emph{If} $\textbf{y}_0=\lim_{\textbf{x}\to\textbf{x}_0}\textbf{f}(\textbf{x})$ \emph{and} $\textbf{z}_0=\lim_{\textbf{x}\to\textbf{x}_0}\textbf{g}(\textbf{x})$\emph{, then}
+\begin{equation}
+\textbf{y}_0 \cdot \textbf{z}_0= \lim_{\textbf{x}\to\textbf{x}_0}\textbf{f}(\textbf{x})\cdot \textbf{g}(\textbf{x})
+\tag{*}
+\label{123}
+\end{equation}
+\begin{Proof}
+Let $V_0$ be the neighbourhood of $\textbf{y}_0$ of radius 1, and $U_0$ bea punctured neighbourhood of $\textbf{x}_0$ such that $\textbf{f}(U_0)\subset V_0$. Let
+$$C=max\{|\textbf{y}_0|+1,|\textbf{z}_0|\}$$
+If $\textbf{y}\in V_0$, then $\textbf{y}=\textbf{y}_0+(\textbf{y}-\textbf{y}_0)$. By \textbf{the triangle inequality}
+$$|\textbf{y}\leq |\textbf{y}_0|+|\textbf{y}-\textbf{y}_0|<|\textbf{y}_0+1|$$
+and hence $|\textbf{y}|<C$. Now
+$$\textbf{f}(\textbf{x})\cdot\textbf{g}(\textbf{x})-\textbf{y}_0\cdot\textbf{z}_0=\textbf{f}(\textbf{x})\cdot[\textbf{g}(\textbf{x})-\textbf{z}_0]+\textbf{z}_0\cdot[\textbf{f}(\textbf{x})-\textbf{y}_0]$$
+From the \textbf{triangle inequality} and \textbf{Cauchy's inequality},
+\begin{equation}
+|\textbf{f}(\textbf{x})\cdot\textbf{g}(\textbf{x})-\textbf{y}_0\cdot\textbf{z}_0|=|\textbf{f}(\textbf{x})||\textbf{g}(\textbf{x})-\textbf{z}_0|+|\textbf{z}_0||\textbf{f}(\textbf{x})-\textbf{y}_0|.
+\label{234}
+\end{equation}|
+Given $\mathcal{E}>0$, let $V_1,V_2$ be the neighbourhoods of radius $\frac{\mathcal{E}}{2C}$ of $\textbf{y}_0,\textbf{z}_0$, respectively, and let $V_1^{'}=V_0\cap V_1$. If $\mathcal{E}\leq 2C$, then $V_1^{'}=V_1$. By hypothesis there are punctured neighbourhoods $U_1,U_2$ of \textbf{x}$_0$ such that $\textbf{f}(U_1)\subset V_1^{'}$, $\textbf{g}(U_2)\subset V_2$. Let $U=U_1\cap U_2$. For every $\textbf{x}\in U$, $\textbf{f}(\textbf{x})\in V_0$ and hence $|\textbf{f}(\textbf{x})|<C$. From (\ref{234}).
+$$|\textbf{f}(\textbf{x})\cdot\textbf{g}(\textbf{x})-\textbf{y}_0\cdot\textbf{z}_0|<C\frac{\mathcal{E}}{2C}+C\frac{\mathcal{E}}{2C}=\mathcal{E}$$
+for every $\textbf{x}\in U$. This proves (\ref{123}).
+\end{Proof}
+Comment: Different from the previous one, here we construct a maximum to fit the condition.
+
+\subsubsection{Use norms or other properties to construct the maximum}
+Remark ahead: this example, together with the last one, both demonstrate the method of multiplying for twice.\par
+\textbf{Lemma}: \emph{Let} $\textbf{t}_0\in\Delta$ and $\tau>0$ \emph{be given. Then} $\textbf{t}_0$ \emph{has a neighbourhood} $\Omega\subset\Delta$ \emph{such that} $\textbf{g}(I)\subset\textbf{G}(I')$ \emph{for every n-cube} $I\subset\Omega$ \emph{with} $\textbf{t}_0\in $cl\emph{I}
+\begin{Proof}
+If $\textbf{x}=\textbf{G}(\textbf{s})$,$\textbf{y}=\textbf{G}(\textbf{t})$, then $\textbf{x}-\textbf{y}=\textbf{L}(\textbf{s}-\textbf{t})$. Let $C=\lVert\textbf{L}^{-1}\rVert$. Then $\textbf{s}-\textbf{t}=\textbf{L}^{-1}(\textbf{x}-\textbf{y})$, and 
+\begin{equation}
+|\textbf{s}-\textbf{t}|\leq C|\textbf{x}-\textbf{y}|.
+\tag{*}
+\label{vbn}
+\end{equation}
+Let $\sigma=\tau / 2\sqrt{n}C$. Since \textbf{g} is differentiable, \textbf{t}$_0$ has a neighbourhood $\Omega\subset\Delta$ such that
+\begin{equation}
+|\textbf{g}(\textbf{t})-\textbf{G}(\textbf{t})|\leq\sigma|\textbf{t}-\textbf{t}_0|
+\tag{**}
+\label{uio}
+\end{equation}
+for every $\textbf{t}\in\Omega$.\par
+Let $\textbf{x}\in\textbf{g}(I)$ and $\textbf{s}=\textbf{G}^{-1}(\textbf{x})$. Then $\textbf{x}=\textbf{G}(\textbf{s})=\textbf{g}(\textbf{t})$ for some $\textbf{t}\in I$. By (\ref{vbn}) and (\ref{uio})
+$$|\textbf{s}-\textbf{t}|\leq C\sigma|\textbf{t}-\textbf{t}_0|.$$
+Since $\textbf{t}_0\in I$, $|\textbf{t}-\textbf{t}_0|\leq d$. Since $d=\sqrt{n}l$,
+$$|\textbf{s}-\textbf{t}|\leq C\sigma\sqrt{n}l\leq\tau l/2$$
+This implies that $\textbf{s}\in I'$ and $\textbf{x}\in\textbf{G}$.
+\end{Proof}
+\subsection{Using limits}(When it comes to functions)
+
+\end{document}
